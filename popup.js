@@ -156,13 +156,6 @@ document.addEventListener('DOMContentLoaded', function () {
   function onclickOnOffButton() {
 
     window.isApplicationOn = document.getElementById('app-on-off-switch').checked;
-    if (window.isApplicationOn === false) {
-      window.yangNameReplace = "Greta Thunberg"
-      bg.isApplicationOn = false;
-      chrome.storage.sync.set({isAppOn: false}, function() {
-
-      });
-    }
 
     if (window.isApplicationOn === true) {
 
@@ -303,7 +296,7 @@ function changesToPopup(url_count, percent){
           yangnessColor = '#FF851B'; // Changes this
           num1 = 1;
         } else if (percent >= 0) {
-          yangnessColor = '#ff4136'; // Changes this // 
+          yangnessColor = '#ff4136'; // Changes this //
           num1 = 0;
         }
 

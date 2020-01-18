@@ -16,7 +16,7 @@ let carbonFootprintPerUSD = {
         'LowMeatEater': 0.00087642,
         'Pescatarian': 0.0007337,
         'Vegetarian': 0.00071572,
-        'Vegan': 0.00054234, 
+        'Vegan': 0.00054234,
     },
 'Pharmaceuticals': 0.0005065 ,
 'ClothesTextilesShoes': 0.00024791 ,
@@ -42,25 +42,25 @@ let carbonFootprintPerUSD = {
 function alertCat() {
 
     let productName = document.getElementById('productTitle').innerText;
-   
+
 
     // alert(priceStr);
     // remove first element (pound or dollar sign)
     let cat = document.getElementById('nav-subnav').getAttribute('data-category').trim();
     // alert(cat);
 
-    
+
     let priceStr = document.getElementById('priceblock_ourprice') ? document.getElementById('priceblock_ourprice').innerText.trim() :null ;
-    
+
     if(!priceStr){
         priceStr = document.getElementsByClassName('offer-price') ? document.getElementsByClassName('offer-price')[0].innerText.trim() : null ;
     }
     else if(!priceStr){
         priceStr = document.getElementsByClassName('a-color-price') ? document.getElementsByClassName('a-color-price')[0].innerText.trim() : null ;
-        
+
     }
     let priceNumber = Number(priceStr.substr(1));
-    let costPerMetricTon = 5; 
+    let costPerMetricTon = 5;
 
     // alert(cat)
     let offsetAmount = 5;
@@ -69,7 +69,7 @@ function alertCat() {
     } else if (cat ==="dvd"){
         offsetAmount = costPerMetricTon*priceNumber*carbonFootprintPerUSD['TelevisionRadioPhoneEquipment'];
     }
-   
+
 
     document.getElementsByClassName('offer-price')[0].parentElement.innerHTML+= '<div style="text-decoration:none !important;">  --> + £'+ offsetAmount.toFixed(2).toString() + " offset </div>"
 
@@ -108,10 +108,9 @@ chrome.storage.sync.get('whatButton', function(whatButton) {
         window.yangNameReplace= button3Name
     } else if(whatButton===4){
         window.yangNameReplace= button4Name
-    } 
+    }
   });
 
-htmlreplace("Greta Thunberg", window.yangNameReplace );
 alertCat();
 
 chrome.runtime.sendMessage({
@@ -124,5 +123,5 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     htmlreplace(window.yangNameReplace, request.yangNameReplace)
     // window.count = count2
     window.yangNameReplace = request.yangNameReplace
-    
+
 });
