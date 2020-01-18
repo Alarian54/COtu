@@ -55,14 +55,14 @@ function alertCat() {
     if(!priceStr){
         priceStr = document.getElementsByClassName('offer-price') ? document.getElementsByClassName('offer-price')[0].innerText.trim() : null ;
     }
-    if(!priceStr){
+    else if(!priceStr){
         priceStr = document.getElementsByClassName('a-color-price') ? document.getElementsByClassName('a-color-price')[0].innerText.trim() : null ;
         
     }
     let priceNumber = Number(priceStr.substr(1));
     let costPerMetricTon = 5; 
 
-    alert(cat);
+    // alert(cat)
     let offsetAmount = 5;
     if(cat ==="computers"){
         offsetAmount = costPerMetricTon*priceNumber*carbonFootprintPerUSD['ComputersITEquipment'];
@@ -71,7 +71,7 @@ function alertCat() {
     }
    
 
-    priceStr[0].parentElement.innerHTML+= '<div style="text-decoration:none !important;">  --> + £'+ offsetAmount.toFixed(2).toString() + " offset </div>"
+    document.getElementsByClassName('offer-price')[0].parentElement.innerHTML+= '<div style="text-decoration:none !important;">  --> + £'+ offsetAmount.toFixed(2).toString() + " offset </div>"
 
 }
 
