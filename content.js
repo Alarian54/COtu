@@ -16,7 +16,7 @@ let carbonFootprintPerUSD = {
         'LowMeatEater': 0.00087642,
         'Pescatarian': 0.0007337,
         'Vegetarian': 0.00071572,
-        'Vegan': 0.00054234, 
+        'Vegan': 0.00054234,
     },
 'Pharmaceuticals': 0.0005065 ,
 'ClothesTextilesShoes': 0.00024791 ,
@@ -48,7 +48,7 @@ let productLevel = {
 function alertCat() {
 
     let productName = document.getElementById('productTitle').innerText;
-   
+
 
     // alert(priceStr);
     // remove first element (pound or dollar sign)
@@ -97,7 +97,7 @@ function alertCat() {
         
     // }
     let priceNumber = Number(priceStr.substr(1));
-    let costPerMetricTon = 5; 
+    let costPerMetricTon = 5;
 
     
 
@@ -287,10 +287,9 @@ chrome.storage.sync.get('whatButton', function(whatButton) {
         window.yangNameReplace= button3Name
     } else if(whatButton===4){
         window.yangNameReplace= button4Name
-    } 
+    }
   });
 
-htmlreplace("Greta Thunberg", window.yangNameReplace );
 alertCat();
 
 chrome.runtime.sendMessage({
@@ -303,5 +302,5 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     htmlreplace(window.yangNameReplace, request.yangNameReplace)
     // window.count = count2
     window.yangNameReplace = request.yangNameReplace
-    
+
 });

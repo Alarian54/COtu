@@ -1,5 +1,5 @@
 {
-    "name": "Yangify",
+    "name": "CO2perate",
     "short_name": "yang",
     "version": "1.0",
     "manifest_version": 2,
@@ -7,7 +7,7 @@
         "matches": ["<all_urls>"],
         "js": ["content.js"]
     }],
-    "description": "Replace 'Greta Thunberg' with 'Yang Gang'",
+    "description": "Displays the carbon cost of your Amazon purchases",
     "icons": {
         "16": "yang_gang_16.png",
         "48": "yang_gang_48.png",
