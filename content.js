@@ -55,20 +55,22 @@ function alertCat() {
     if(!priceStr){
         priceStr = document.getElementsByClassName('offer-price') ? document.getElementsByClassName('offer-price')[0].innerText.trim() : null ;
     }
+    if(!priceStr){
+        priceStr = document.getElementsByClassName('a-color-price') ? document.getElementsByClassName('a-color-price')[0].innerText.trim() : null ;
+        
+    }
     let priceNumber = Number(priceStr.substr(1));
+    let costPerMetricTon = 5; 
 
     let offsetAmount = 5;
     if(cat ==="computers"){
-        offsetAmount = priceNumber*carbonFootprintPerUSD['ComputersITEquipment'];
+        offsetAmount = costPerMetricTon*priceNumber*carbonFootprintPerUSD['ComputersITEquipment'];
     } else if (cat ==="dvd"){
-        offsetAmount = priceNumber*carbonFootprintPerUSD['TelevisionRadioPhoneEquipment'];
+        offsetAmount = costPerMetricTon*priceNumber*carbonFootprintPerUSD['TelevisionRadioPhoneEquipment'];
     }
    
 
-    document.getElementsByClassName('offer-price')[0].parentElement.innerHTML+= '<div style="text-decoration:none !important;">  --> + £'+ offsetAmount.toFixed(2).toString() + " offset </div>"
-
- 
-
+    priceStr[0].parentElement.innerHTML+= '<div style="text-decoration:none !important;">  --> + £'+ offsetAmount.toFixed(2).toString() + " offset </div>"
 
 }
 
