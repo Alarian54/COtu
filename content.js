@@ -36,9 +36,12 @@ let carbonFootprintPerUSD = {
 'Train':  0.0000036  ,
 'Taxi':  0.0001001  ,
 'zero':0,
-'digitalMusic':0,
-
 };
+
+let productLevel = {
+    'digitalMusic':0,
+    'phone': 0.06,
+}
 
 
 
