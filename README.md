@@ -1,1 +1,1 @@
-# CO2perate
+# CO<sub>2</sub>perate
