@@ -287,8 +287,9 @@ input[name="toggle2"].toggle:checked+label:after {
   font-weight: bold;
   letter-spacing: 0.06em;
   border-radius: 2px;
-  margin-right: 5px;
-  margin-top: -9px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   cursor: pointer;
   transition: 0.4s;
   padding: 4px 7px 4px 7px;
