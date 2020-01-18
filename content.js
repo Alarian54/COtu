@@ -70,8 +70,26 @@ function alertCat() {
         offsetAmount = costPerMetricTon*priceNumber*carbonFootprintPerUSD['TelevisionRadioPhoneEquipment'];
     }
 
+    // Assume that 4 trees are needed to offset one metric tonne of carbon.
+    let treesPerMetricTonne = 4
+    let trees = (offsetAmount/costPerMetricTon)*treesPerMetricTonne
 
-    document.getElementsByClassName('offer-price')[0].parentElement.innerHTML+= '<div style="text-decoration:none !important;">  --> + £'+ offsetAmount.toFixed(2).toString() + " offset </div>"
+    let textbox = ""
+
+    if (offsetAmount >= 1) {
+      textbox += '💰 £'+ offsetAmount.toFixed(2).toString() + " to offset"
+    } else {
+      textbox += '💰 ' + (offsetAmount*100).toFixed(0).toString() + "p to offset"
+    }
+
+    if (trees > 1){
+      textbox += "<br> Equivalent to " + trees.toFixed(0).toString() + " 🌳"
+    } else {
+      textbox += "<br> Equivalent to " + (trees*1000).toFixed(0).toString() + " 🌱 "
+    }
+
+    document.getElementsByClassName('offer-price')[0].parentElement.innerHTML+= '<p></p>'
+    document.getElementsByClassName('offer-price')[0].parentElement.innerHTML+= '<p style="border:3px; border-style:solid; border-radius:10px; border-color:#35DDB5; background-color:#EAF7F0; padding: 0.3em ;"> ' + textbox + '</p>'
 
 }
 
