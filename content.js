@@ -8,6 +8,71 @@ window.yangNameReplace = button1Name
 window.count  = 0;
 
 window.counter = 0
+
+let carbonFootprintPerUSD = {
+    'Food':{
+        'HeavyMeatEater': 0.00135004,
+        'MediumMeatEater': 0.0010572,
+        'LowMeatEater': 0.00087642,
+        'Pescatarian': 0.0007337,
+        'Vegetarian': 0.00071572,
+        'Vegan': 0.00054234, 
+    },
+'Pharmaceuticals': 0.0005065 ,
+'ClothesTextilesShoes': 0.00024791 ,
+'PaperProducts': 0.00049538 ,
+'ComputersITEquipment': 0.0006511 ,
+'TelevisionRadioPhoneEquipment': 0.0003934 ,
+'MotorVehiclesWithoutFuel': 0.0007792 ,
+'FurnitureAndOtherManufacturedGoods': 0.0005037 ,
+'HotelsRestaurantsPubsEtc': 0.0005141 ,
+'TelephoneMobileCellPhoneCallCosts': 0.0006236 ,
+'BankingAndFinance': 0.0001846 , // Mortgage and loan interest payments)
+'Insurance': 0.0003108 ,
+'Education':0.0002477,
+'RecreationalCulturalSportingActivities': 0.00021518 ,
+'Flights':  0.00273411  ,
+'Car':  0.0000184294 ,
+'Train':  0.0000036  ,
+'Taxi':  0.0001001  ,
+};
+
+
+
+function alertCat() {
+
+    let productName = document.getElementById('productTitle').innerText;
+   
+
+    // alert(priceStr);
+    // remove first element (pound or dollar sign)
+    let cat = document.getElementById('nav-subnav').getAttribute('data-category').trim();
+    // alert(cat);
+
+
+    let priceStr = document.getElementById('priceblock_ourprice') ? document.getElementById('priceblock_ourprice').innerText.trim() :null ;
+
+    if(!priceStr){
+        priceStr = document.getElementsByClassName('offer-price') ? document.getElementsByClassName('offer-price')[0].innerText.trim() : null ;
+    }
+    let priceNumber = Number(priceStr.substr(1));
+
+    let offsetAmount = 5;
+    if(cat ==="computers"){
+        offsetAmount = priceNumber*carbonFootprintPerUSD['ComputersITEquipment'];
+    } else if (cat ==="dvd"){
+        offsetAmount = priceNumber*carbonFootprintPerUSD['TelevisionRadioPhoneEquipment'];
+    }
+   
+
+    document.getElementsByClassName('offer-price')[0].parentElement.innerHTML+= '<div style="text-decoration:none !important;">  --> + £'+ offsetAmount.toFixed(2).toString() + " offset </div>"
+
+ 
+
+
+}
+
+
 function htmlreplace(a,b,element) {
     if(!element)element=document.body;
     let nodes=element.childNodes;
@@ -44,6 +109,7 @@ chrome.storage.sync.get('whatButton', function(whatButton) {
   });
 
 htmlreplace("Greta Thunberg", window.yangNameReplace );
+alertCat();
 
 chrome.runtime.sendMessage({
     url: window.location.href,
