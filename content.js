@@ -234,15 +234,35 @@ function alertCat() {
             let attributeName = attr[1];
 
 
+               // Assume that 4 trees are needed to offset one metric tonne of carbon.
+    let treesPerMetricTonne = 4
+    let trees = (offsetAmount/costPerMetricTon)*treesPerMetricTonne
+
+    let textbox = ""
+
+    if (offsetAmount >= 1) {
+      textbox += '💰 £'+ offsetAmount.toFixed(2).toString() + " to offset"
+    } else {
+      textbox += '💰 ' + (offsetAmount*100).toFixed(0).toString() + "p to offset"
+    }
+
+    if (trees > 1){
+      textbox += "<br> Equivalent to " + trees.toFixed(0).toString() + " 🌳"
+    } else {
+      textbox += "<br> Equivalent to " + (trees*1000).toFixed(0).toString() + " 🌱 "
+    }
+
+    
+
             if(attributeType == 'class'){
 
-                document.getElementsByClassName(attributeName)[0].parentElement.innerHTML+= '<div style="text-decoration:none !important;">  --> + £'+ offsetAmount.toFixed(2).toString() + " offset </div>"
+                document.getElementsByClassName(attributeName)[0].parentElement.innerHTML+= '<br><p style="border:3px; border-style:solid; border-radius:10px; border-color:#35DDB5; background-color:#EAF7F0; padding: 0.3em ;"> ' + textbox + '</p>'
 
              
             }
             else if(attributeType == 'id'){
 
-                document.getElementById(attributeName).parentElement.innerHTML+= '<div style="text-decoration:none !important;">  --> + £'+ offsetAmount.toFixed(2).toString() + " offset </div>"
+                document.getElementById(attributeName).parentElement.innerHTML+= '<br><p style="border:3px; border-style:solid; border-radius:10px; border-color:#35DDB5; background-color:#EAF7F0; padding: 0.3em ;"> ' + textbox + '</p>'
 
 
             }
