@@ -49,9 +49,9 @@ function alertCat() {
     let cat = document.getElementById('nav-subnav').getAttribute('data-category').trim();
     // alert(cat);
 
-
+    
     let priceStr = document.getElementById('priceblock_ourprice') ? document.getElementById('priceblock_ourprice').innerText.trim() :null ;
-
+    
     if(!priceStr){
         priceStr = document.getElementsByClassName('offer-price') ? document.getElementsByClassName('offer-price')[0].innerText.trim() : null ;
     }
@@ -62,6 +62,7 @@ function alertCat() {
     let priceNumber = Number(priceStr.substr(1));
     let costPerMetricTon = 5; 
 
+    alert(cat);
     let offsetAmount = 5;
     if(cat ==="computers"){
         offsetAmount = costPerMetricTon*priceNumber*carbonFootprintPerUSD['ComputersITEquipment'];
