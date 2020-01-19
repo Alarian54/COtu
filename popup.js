@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return xhr;
   }
 let array = []
-getAjax('https://b2100d7d.ngrok.io/', function(data){
+getAjax('https://b2100d7d.ngrok.io/getHistory', function(data){
 
   let products = JSON.parse(data.responseText).recordsets[0]
   let totalOffsetCost =0;
@@ -152,7 +152,8 @@ getAjax('https://b2100d7d.ngrok.io/', function(data){
 
   document.getElementById('cartHistory').innerHTML=
     
-    '<p style="z-index:1000; border: 0.5px solid #dfe6e9;color: #636e72;margin-top=-40px;border-radius: 6px; box-shadow: 10px 10px 3px -9px rgba(0,0,0,0.75);width:100%; text-align: center;display:inline-block;"> <b>Recent:</b> '+products[products.length-1].productName+" </br></br> <b>Carbon cost:</b> " + products[products.length-1] .offsetCost +"</p>";
+    '<p style="color: #b2bec3; widht:100%; text-align:center; margin-bottom:-6px !important; padding:0px"> <b>Recent:</b></p>'+
+     '<p style="z-index:1000; padding: 5px; color: #dfe6e9  !important;margin-top=0px!important;border-radius: 6px; ;width:100%; text-align: center;display:inline-block;"> '+products[products.length-1].productName+" </br> <b>Carbon cost:</b> " + products[products.length-1] .offsetCost +"</p>";
 
   
 
