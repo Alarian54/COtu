@@ -1,0 +1,23 @@
+{
+  "name": "serverCotu",
+  "engines": {
+    "node": ">=4"
+  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "boom": "^7.3.0",
+    "hapi": "^18.1.0",
+    "joi": "^14.3.1",
+    "mongodb": "^3.5.1",
+    "mssql": "^6.0.1",
+    "tedious": "^8.0.1"
+  }
+}

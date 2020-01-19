@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return xhr;
   }
 let array = []
-getAjax('https://b2100d7d.ngrok.io/getHistory', function(data){
+getAjax('https://d8cf8aff.ngrok.io/getHistory', function(data){
 
   let products = JSON.parse(data.responseText).recordsets[0]
   let totalOffsetCost =0;
@@ -82,7 +82,7 @@ getAjax('https://b2100d7d.ngrok.io/getHistory', function(data){
 
 
 
-    let percent = percentage(10, totalOffsetCost);
+    let percent = percentage(3, totalOffsetCost);
     let marginAmount = marginMove(percent);
     document.getElementById('progessBarImg').style.marginLeft = marginAmount;
     document.getElementById('progress-bar-yangness').value = percent.toString();

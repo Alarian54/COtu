@@ -292,7 +292,7 @@ function alertCat() {
         cotuAddToCart.addEventListener("click", () => 
     
     
-        $.post("https://b2100d7d.ngrok.io/insertItem",
+        $.post("https://d8cf8aff.ngrok.io/insertItem",
         {
             Id:random ,
             productName: productName,
