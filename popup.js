@@ -120,28 +120,44 @@
 
 // }
 
-
-
 document.addEventListener('DOMContentLoaded', function () {
 
+  document.getElementById('yangCaption').innerText="TRYYY";
   function getAjax(url, success) {
     var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     // xhr.responseType = 'json';
     xhr.open('GET', url);
     xhr.onreadystatechange = function() {
-        if (xhr.readyState>3 && xhr.status==200) return(xhr.responseText);
+        if (xhr.readyState>3 && xhr.status==200) success(xhr);
     };
     xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     xhr.send();
     return xhr;
   }
-  
-let resultObj = getAjax('https://b2100d7d.ngrok.io/');
+let array = []
+getAjax('https://b2100d7d.ngrok.io/', function(data){
+
+
+  JSON.parse(data.responseText).recordsets[0].forEach((productInfo)=>{
+    // array.push(productInfo.productName);
+    document.getElementById('cartHistory').innerHTML+=
+    
+    '<p style="width:100%; text-align: center;display:inline-block;">'+productInfo.productName+"-> Offset: " + productInfo.offsetCost +"</p>";
+
+  })
+
+} );
+
+
+
+// document.getElementById('#scorecardTitle').innerText = data;
 // example request
-console.log(resultObj);
-let newobj = resultObj.responseText
-console.log(newobj);
-alert(resultObj);
+// console.log(resultObj);
+// let newobj = resultObj.responseText
+// console.log(newobj);
+// alert(resultObj);
+
+
 //.recordsets[0].productName
   // const bg = chrome.extension.getBackgroundPage()
 
