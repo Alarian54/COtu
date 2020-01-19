@@ -14,7 +14,7 @@ Run the following scripts in the notebook to create a table for a user's purchas
 
 (to be filled)
 
-1.) 🎾 Sign in and Download ngrok (lets us easily upload a server), once downloaded authenticate as instructed on the website
+1.) 🎾 Sign in and Download ngrok (lets us easily upload a server https://ngrok.com/), once downloaded authenticate as instructed on the website
 
 2.) 📂 Get server folder up and running.
 
