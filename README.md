@@ -43,6 +43,10 @@ Click on the chrome extension icon to reveal Great - your personal carbon coach
 
 Have fun.
 
+## LIMITATIONS
 
+1.) Currently the sql database is shared between all users - a better version would modify the databse and add user sessions
+2.) The quality of the carbon data is limited by the amount of category data there is (and currently is linearly dependant on price)
+3.) Currently we cant access product group in the multi product pages - it eould be cool to be able to comoare product carbon footprints to eachother
 
 
