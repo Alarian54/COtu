@@ -285,7 +285,6 @@ function changesToPopup(url_count, percent){
         var yangnessColor = 'red';
         var level = yangnessDecider(url_count);
 
-        // #7DCBF5 - Light blue from logo
         if (percent >= 75) {
           yangnessColor = '#83c3e6'; // Changes this //
           num1 = 3;

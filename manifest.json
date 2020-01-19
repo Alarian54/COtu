@@ -1,6 +1,6 @@
 {
-    "name": "CO2perate",
-    "short_name": "CO2perate",
+    "name": "Cotu",
+    "short_name": "Cotu",
     "version": "1.0",
     "manifest_version": 2,
     "content_scripts": [{
@@ -9,14 +9,14 @@
     }],
     "description": "Displays the carbon cost of your Amazon purchases",
     "icons": {
-        "16": "co2perate_16.png",
-        "48": "co2perate_48.png",
-        "128": "co2perate_128.png"
+        "16": "cotu_16.png",
+        "48": "cotu_48.png",
+        "128": "cotu_128.png"
     },
     "browser_action": {
         "default_popup": "popup.html",
-        "default_title": "CO2perate",
-        "default_icon": "favicon&logo.png"
+        "default_title": "Cotu",
+        "default_icon": "cotu_128.png"
     },
     "background": {
         "scripts": ["background.js"]
