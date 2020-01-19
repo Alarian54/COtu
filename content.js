@@ -250,7 +250,7 @@ function alertCat() {
             let attributeName = attr[1];
 
 
-               // Assume that 4 trees are needed to offset one metric tonne of carbon.
+    // Assume that 4 trees are needed to offset one metric tonne of carbon.
     let treesPerMetricTonne = 4
     let trees = (offsetAmount/costPerMetricTon)*treesPerMetricTonne
 
@@ -270,11 +270,11 @@ function alertCat() {
 
     if (attributeType == 'class') {
 
-      document.getElementsByClassName(attributeName)[0].parentElement.innerHTML+= '<br><p style="border:3px; border-style:solid; border-radius:10px; border-color:#35DDB5; background-color:#EAF7F0; padding: 0.3em ;"> ' + textbox + '</p>'
+      document.getElementsByClassName(attributeName)[0].parentElement.innerHTML+= '<br><p style="border:3px; border-style:solid; border-radius:10px; border-color:#35DDB5; background-color:#EAF7F0; padding: 0.3em ; display:inline-block;"> ' + textbox + '</p>'
 
     } else if (attributeType == 'id') {
 
-        document.getElementById(attributeName).parentElement.innerHTML+= '<br><p style="border:3px; border-style:solid; border-radius:10px; border-color:#35DDB5; background-color:#EAF7F0; padding: 0.3em ;"> ' + textbox + '</p>'
+      document.getElementById(attributeName).parentElement.innerHTML+= '<br><p style="border:3px; border-style:solid; border-radius:10px; border-color:#35DDB5; background-color:#EAF7F0; padding: 0.3em ; display:inline-block;"> ' + textbox + '</p>'
 
     }
 
