@@ -122,7 +122,6 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  document.getElementById('yangCaption').innerText="TRYYY";
   function getAjax(url, success) {
     var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     // xhr.responseType = 'json';
