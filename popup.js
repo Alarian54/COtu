@@ -151,12 +151,12 @@ getAjax('https://b2100d7d.ngrok.io/', function(data){
 
 
   document.getElementById('cartHistory').innerHTML=
-    
-    '<p style="z-index:1000; border: 0.5px solid #dfe6e9;color: #636e72;margin-top=-40px;border-radius: 6px; box-shadow: 10px 10px 3px -9px rgba(0,0,0,0.75);width:100%; text-align: center;display:inline-block;"> <b>Recent:</b> '+products[products.length-1].productName+" </br></br> <b>Carbon cost:</b> " + products[products.length-1] .offsetCost +"</p>";
 
-  
+    '<p style="z-index:1000; border: 0.5px solid #dfe6e9;color: #636e72;margin-top=-40px;border-radius: 6px; box-shadow: 10px 10px 3px -9px rgba(0,0,0,0.75);width:100%; text-align: center; display:inline-block;"> <b>Recent:</b> '+products[products.length-1].productName+" </br></br> <b>Carbon cost:</b> " + products[products.length-1] .offsetCost +"</p>";
 
-  
+
+
+
 
 } );
 

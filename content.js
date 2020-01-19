@@ -60,11 +60,11 @@ function getCookie(cname) {
 
 function alertCat() {
 
-    // remove add to cart button and add ours instead
+    // remove add to basket button and add ours instead
     if( document.getElementById('addToCart_feature_div')){
         let cotuAddToCart = document.createElement("button");
-        cotuAddToCart.innerText = " 🌱 Add to Cart with Cotu";
-        cotuAddToCart.style = "border-width: 3px; border-radius: 2px; background-color: #EAF7F0 ; width: 100%; text-align:center; padding: 5px; border-color:#77F2D0; margin-bottom:5px;";
+        cotuAddToCart.innerText = " 🌱 Add to Basket with Cotu";
+        cotuAddToCart.style = "border-width: 3px; border-radius: 5px; background-color: #EAF7F0 ; width: 100%; text-align:center; padding: 5px; border-color:#77F2D0; margin-bottom:5px;";
         cotuAddToCart.addEventListener("click", () => alert("CLICKED"));
         document.getElementById('addToCart_feature_div').parentNode.insertBefore(cotuAddToCart, document.getElementById('addToCart_feature_div').nextSibling);
         document.getElementById('addToCart_feature_div').style.display ="none";
@@ -263,20 +263,25 @@ function alertCat() {
     }
 
     if (trees > 1){
-      textbox += "<br> Equivalent to " + trees.toFixed(0).toString() + " 🌳"
+      textbox += "<br><span style='color:#636e72;'>Equivalent to " + trees.toFixed(0).toString() + "</span> 🌳&nbsp; "
     } else {
-      textbox += "<br> Equivalent to " + (trees*1000).toFixed(0).toString() + " 🌱 "
+      textbox += "<br><span style='color:#636e72;'>Equivalent to " + (trees*1000).toFixed(0).toString() + "</span> 🌱&nbsp; "
     }
+
+    imageHTML = '<img alt src="//i.imgur.com/8LYBkjU.png" height=37px width=37px style="padding:1px">'
 
     if (attributeType == 'class') {
 
-      document.getElementsByClassName(attributeName)[0].parentElement.innerHTML+= '<br><p style="border:3px; border-style:solid; border-radius:10px; border-color:#35DDB5; background-color:#EAF7F0; padding: 0.3em ; display:inline-block;"> ' + textbox + '</p>'
+      document.getElementsByClassName(attributeName)[0].parentElement.innerHTML+= '<br><div style="display:inline-grid; grid-template-columns: auto auto; border:3px; border-style:solid; border-radius:10px; border-color:#35DDB5; background-color:#EAF7F0; padding: 0.3em ;"><div>' + textbox + '</div><div>' + imageHTML + '</div>'
 
     } else if (attributeType == 'id') {
 
-      document.getElementById(attributeName).parentElement.innerHTML+= '<br><p style="border:3px; border-style:solid; border-radius:10px; border-color:#35DDB5; background-color:#EAF7F0; padding: 0.3em ; display:inline-block;"> ' + textbox + '</p>'
+      document.getElementById(attributeName).parentElement.innerHTML+= '<br><div style="display:inline-grid; grid-template-columns: auto auto; border:3px; border-style:solid; border-radius:10px; border-color:#35DDB5; background-color:#EAF7F0; padding: 0.3em ;"><div>' + textbox + '</div><div>' + imageHTML + '</div>'
 
     }
+
+
+
 
     })
 }
