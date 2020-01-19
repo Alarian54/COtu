@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return xhr;
   }
 let array = []
-getAjax('https://b2100d7d.ngrok.io/', function(data){
+getAjax('https://b2100d7d.ngrok.io/getHistory', function(data){
 
   let products = JSON.parse(data.responseText).recordsets[0]
   let totalOffsetCost =0;
