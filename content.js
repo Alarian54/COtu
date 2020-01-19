@@ -43,7 +43,20 @@ let productLevel = {
     'phone': 0.06,
 }
 
-
+function getCookie(cname) {
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "none";
+}
 
 function alertCat() {
 
@@ -56,14 +69,8 @@ function alertCat() {
         document.getElementById('addToCart_feature_div').parentNode.insertBefore(cotuAddToCart, document.getElementById('addToCart_feature_div').nextSibling);
         document.getElementById('addToCart_feature_div').style.display ="none";
     }
-   
-//   $( "#productTitle" ).hide();
-
-    
-
 
     let productName = document.getElementById('productTitle').innerText;
-
 
     // alert(priceStr);
     // remove first element (pound or dollar sign)
@@ -73,13 +80,11 @@ function alertCat() {
     let priceTags = [['id','priceblock_ourprice'],
                         ['class','offer-price'],
                         ['class','a-color-price']
-                    
                     ]
 
     let priceStr = 0;
-    let pricesFound = [] 
+    let pricesFound = []
     priceTags.forEach(([attributeType,attributeName]) => {
-
 
         if(attributeType == 'id'){
 
@@ -87,7 +92,7 @@ function alertCat() {
                 priceStr =  document.getElementById(attributeName).innerText.trim();
                 pricesFound.push([attributeType,attributeName])
             }
-                
+
         }
         else if(attributeType == 'class'){
 
@@ -100,26 +105,24 @@ function alertCat() {
 
     })
 
-    alert(priceStr);
+    // alert(priceStr);
 
     // let priceStr = document.getElementById('priceblock_ourprice') ? document.getElementById('priceblock_ourprice').innerText.trim() :null ;
-    
+
     // if(!priceStr){
     //     priceStr = document.getElementsByClassName('offer-price') ? document.getElementsByClassName('offer-price')[0].innerText.trim() : null ;
     // }
     // else if(!priceStr){
     //     priceStr = document.getElementsByClassName('a-color-price') ? document.getElementsByClassName('a-color-price')[0].innerText.trim() : null ;
-        
+
     // }
     let priceNumber = Number(priceStr.substr(1));
     let costPerMetricTon = 5;
 
-    
-
     // alert(cat)
     let offsetAmount = 5;
     let emissionsCategory = 'ComputersITEquipment'
-    alert(cat);
+    // alert(cat);
     switch(cat){
         case("computers"):
             emissionsCategory = 'ComputersITEquipment'
@@ -229,8 +232,8 @@ function alertCat() {
         case('watch'):
             emissionsCategory= 'FurnitureAndOtherManufacturedGoods'
             break;
-           
-        
+
+
         default:
             break;
 
@@ -238,11 +241,9 @@ function alertCat() {
 
     }
 
-
-    
     offsetAmount = costPerMetricTon*priceNumber*carbonFootprintPerUSD[emissionsCategory];
     // alert(offsetAmount);
-   
+
     if(pricesFound.length!==0){
         pricesFound.forEach((attr) =>{
             let attributeType = attr[0];
@@ -267,25 +268,20 @@ function alertCat() {
       textbox += "<br> Equivalent to " + (trees*1000).toFixed(0).toString() + " 🌱 "
     }
 
-    
+    if (attributeType == 'class') {
 
-            if(attributeType == 'class'){
+      document.getElementsByClassName(attributeName)[0].parentElement.innerHTML+= '<br><p style="border:3px; border-style:solid; border-radius:10px; border-color:#35DDB5; background-color:#EAF7F0; padding: 0.3em ;"> ' + textbox + '</p>'
 
-                document.getElementsByClassName(attributeName)[0].parentElement.innerHTML+= '<br><p style="border:3px; border-style:solid; border-radius:10px; border-color:#35DDB5; background-color:#EAF7F0; padding: 0.3em ;"> ' + textbox + '</p>'
+    } else if (attributeType == 'id') {
 
-             
-            }
-            else if(attributeType == 'id'){
+        document.getElementById(attributeName).parentElement.innerHTML+= '<br><p style="border:3px; border-style:solid; border-radius:10px; border-color:#35DDB5; background-color:#EAF7F0; padding: 0.3em ;"> ' + textbox + '</p>'
 
-                document.getElementById(attributeName).parentElement.innerHTML+= '<br><p style="border:3px; border-style:solid; border-radius:10px; border-color:#35DDB5; background-color:#EAF7F0; padding: 0.3em ;"> ' + textbox + '</p>'
-
-
-            }
-
-        })
     }
-    
-   
+
+    })
+}
+
+
 
 }
 
@@ -331,7 +327,6 @@ chrome.runtime.sendMessage({
     url: window.location.href,
     count: window.count
 });
-
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     htmlreplace(window.yangNameReplace, request.yangNameReplace)
