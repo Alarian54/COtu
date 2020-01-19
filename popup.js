@@ -81,42 +81,48 @@
 //   }
 // }
 
-// const yangnessCountArray = [
-//   [0, 'Mathless', 25, 'progressFaces/GretaFace.png'],
-//   [4, 'Ying and Yang', 50, 'progressFaces/yinyang.png'],
-//   [6, 'Freedom Dividend', 75, 'progressFaces/freedomDividend.png'],
-//   [12, 'Yang Gangster', 100, 'progressFaces/yangster.png']
-// ];
+const gretaCountArray = [
+  [10, 'How Dare You', 25, 'progressFaces/GretaFace.png'],
+  [5, 'ReGretable', 50, 'progressFaces/yinyang.png'],
+  [3, "Don't thin the Bergs", 75, 'progressFaces/freedomDividend.png'],
+  [0, "You're Greata", 100, 'progressFaces/yangster.png']
+];
+
+function percentage(maxCount, count) {
+  if (maxCount <= count) {
+    return 100;
+  }
+  var percentage = Math.floor(100 * count / maxCount)
+  return percentage
+}
+
+function marginMove(percent) {
+  var leftMostMargin = -220 // '-220px'
+  var rightMostMargin = -40 //'-40px'
+
+  var marginPosition = (leftMostMargin - (percent / 100) * (leftMostMargin - rightMostMargin))
+
+  return marginPosition.toString() + "px";
+
+}
+
+function gretaDecider(count) {
+
+  for (var i = gretaCountArray.length - 1; i >= 0; i--) {
+    const threshCount = gretaCountArray[i][0]
+    const level = gretaCountArray[i][1]
+
+    if (threshCount <= count) {
+      return level
+    }
+  }
+}
+
+
 
 // /* [0 /*yang count*/ /* , 'Bernie Sadders' /* level acheived*/ /* , 0 /* % of progressbar*/ /* , 'progressFaces/bernieSadders.png'], */
 
-// function yangnessDecider(count) {
 
-//   for (var i = yangnessCountArray.length - 1; i >= 0; i--) {
-//     const threshCount = yangnessCountArray[i][0]
-//     const level = yangnessCountArray[i][1]
-
-//     if (threshCount <= count) {
-//       return level
-//     }
-//   }
-// }
-
-// function percentage(maxCount, count) {
-//   if (maxCount <= count) {
-//     return 100;
-//   }
-//   var percentage = Math.floor(100 * count / maxCount)
-//   return percentage
-// }
-
-// function marginMove(percent) {
-//   var leftMostMargin = -220 // '-220px'
-//   var rightMostMargin = -40 //'-40px'
-
-//   var marginPosition = leftMostMargin - (percent / 100) * (leftMostMargin - rightMostMargin)
-
-//   return marginPosition.toString() + "px"
 
 // }
 
@@ -159,8 +165,14 @@ getAjax('https://b2100d7d.ngrok.io/getHistory', function(data){
 
 
 
-
+    let percent = percentage(10, totalOffsetCost);
+    let marginAmount = marginMove(percent);
+    document.getElementById('progessBarImg').style.marginLeft = marginAmount;
+    document.getElementById('progress-bar-yangness').value = percent.toString();
+    alert(marginAmount);
 } );
+
+
 
 
 
