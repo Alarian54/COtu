@@ -43,7 +43,20 @@ let productLevel = {
     'phone': 0.06,
 }
 
-
+function getCookie(cname) {
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "none";
+}
 
 function alertCat() {
 
@@ -57,11 +70,7 @@ function alertCat() {
         document.getElementById('addToCart_feature_div').style.display ="none";
     }
 
-
-
-
     let productName = document.getElementById('productTitle').innerText;
-
 
     // alert(priceStr);
     // remove first element (pound or dollar sign)
@@ -71,13 +80,11 @@ function alertCat() {
     let priceTags = [['id','priceblock_ourprice'],
                         ['class','offer-price'],
                         ['class','a-color-price']
-
                     ]
 
     let priceStr = 0;
     let pricesFound = []
     priceTags.forEach(([attributeType,attributeName]) => {
-
 
         if(attributeType == 'id'){
 
@@ -98,7 +105,7 @@ function alertCat() {
 
     })
 
-    alert(priceStr);
+    // alert(priceStr);
 
     // let priceStr = document.getElementById('priceblock_ourprice') ? document.getElementById('priceblock_ourprice').innerText.trim() :null ;
 
@@ -112,12 +119,10 @@ function alertCat() {
     let priceNumber = Number(priceStr.substr(1));
     let costPerMetricTon = 5;
 
-
-
     // alert(cat)
     let offsetAmount = 5;
     let emissionsCategory = 'ComputersITEquipment'
-    alert(cat);
+    // alert(cat);
     switch(cat){
         case("computers"):
             emissionsCategory = 'ComputersITEquipment'
@@ -236,8 +241,6 @@ function alertCat() {
 
     }
 
-
-
     offsetAmount = costPerMetricTon*priceNumber*carbonFootprintPerUSD[emissionsCategory];
     // alert(offsetAmount);
 
@@ -265,23 +268,18 @@ function alertCat() {
       textbox += "<br> Equivalent to " + (trees*1000).toFixed(0).toString() + " 🌱 "
     }
 
+    if (attributeType == 'class') {
 
+      document.getElementsByClassName(attributeName)[0].parentElement.innerHTML+= '<br><p style="border:3px; border-style:solid; border-radius:10px; border-color:#35DDB5; background-color:#EAF7F0; padding: 0.3em ;"> ' + textbox + '</p>'
 
-            if(attributeType == 'class'){
+    } else if (attributeType == 'id') {
 
-                document.getElementsByClassName(attributeName)[0].parentElement.innerHTML+= '<br><p style="border:3px; border-style:solid; border-radius:10px; border-color:#35DDB5; background-color:#EAF7F0; padding: 0.3em ;"> ' + textbox + '</p>'
+        document.getElementById(attributeName).parentElement.innerHTML+= '<br><p style="border:3px; border-style:solid; border-radius:10px; border-color:#35DDB5; background-color:#EAF7F0; padding: 0.3em ;"> ' + textbox + '</p>'
 
-
-            }
-            else if(attributeType == 'id'){
-
-                document.getElementById(attributeName).parentElement.innerHTML+= '<br><p style="border:3px; border-style:solid; border-radius:10px; border-color:#35DDB5; background-color:#EAF7F0; padding: 0.3em ;"> ' + textbox + '</p>'
-
-
-            }
-
-        })
     }
+
+    })
+}
 
 
 
@@ -329,7 +327,6 @@ chrome.runtime.sendMessage({
     url: window.location.href,
     count: window.count
 });
-
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     htmlreplace(window.yangNameReplace, request.yangNameReplace)
