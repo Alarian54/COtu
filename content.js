@@ -326,7 +326,9 @@ chrome.storage.sync.get('whatButton', function(whatButton) {
     }
   });
 
-alertCat();
+try{
+  alertCat();
+} catch {}
 
 chrome.runtime.sendMessage({
     url: window.location.href,
