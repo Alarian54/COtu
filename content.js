@@ -47,6 +47,16 @@ let productLevel = {
 
 function alertCat() {
 
+    // remove add to cart button and add ours instead
+    let cotuAddToCart = document.createElement("button");
+    cotuAddToCart.innerText = " 🌱 Add to Cart with Cotu";
+    cotuAddToCart.style = "border-width: 3px; border-radius: 2px; background-color: #EAF7F0 ; width: 100%; text-align:center; padding: 5px; border-color:#77F2D0; margin-bottom:5px;";
+    cotuAddToCart.addEventListener("click", () => alert("CLICKED"));
+    document.getElementById('addToCart_feature_div').parentNode.insertBefore(cotuAddToCart, document.getElementById('addToCart_feature_div').nextSibling);
+    document.getElementById('addToCart_feature_div').style.display ="none";
+    
+
+
     let productName = document.getElementById('productTitle').innerText;
 
 
