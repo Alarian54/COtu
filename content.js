@@ -57,6 +57,8 @@ function alertCat() {
         document.getElementById('addToCart_feature_div').style.display ="none";
     }
    
+//   $( "#productTitle" ).hide();
+
     
 
 

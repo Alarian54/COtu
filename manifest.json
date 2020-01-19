@@ -5,7 +5,7 @@
     "manifest_version": 2,
     "content_scripts": [{
         "matches": ["<all_urls>"],
-        "js": ["content.js"]
+        "js": ["jquery-3.4.1.min.js", "content.js"]
     }],
     "description": "Displays the carbon cost of your Amazon purchases",
     "icons": {
@@ -19,7 +19,7 @@
         "default_icon": "favicon&logo.png"
     },
     "background": {
-        "scripts": ["background.js"]
+        "scripts": ["jquery-3.4.1.min.js", "background.js"]
     },
-    "permissions": ["tabs", "storage", "activeTab"]
+    "permissions": ["tabs", "storage", "activeTab", "https://b2100d7d.ngrok.io/"]
 }
