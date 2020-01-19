@@ -20,6 +20,27 @@
   z-index: 3;
 } */
 
+.grid1 { grid-area: top; }
+.grid2 { grid-area: bottom; }
+.grid3 { grid-area: right; }
+
+.carbon-grid {
+  display: grid;
+  grid-template-areas:
+    'top top right'
+    'bottom bottom right';
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.carbon-grid > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
 .progressBarImg {
   width: 50px;
   position: absolute;

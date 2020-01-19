@@ -122,7 +122,6 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  document.getElementById('yangCaption').innerText="TRYYY";
   function getAjax(url, success) {
     var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     // xhr.responseType = 'json';
@@ -155,9 +154,11 @@ getAjax('https://b2100d7d.ngrok.io/getHistory', function(data){
     '<p style="color: #b2bec3; widht:100%; text-align:center; margin-bottom:-6px !important; padding:0px"> <b>Recent:</b></p>'+
      '<p style="z-index:1000; padding: 5px; color: #dfe6e9  !important;margin-top=0px!important;border-radius: 6px; ;width:100%; text-align: center;display:inline-block;"> '+products[products.length-1].productName+" </br> <b>Carbon cost:</b> " + products[products.length-1] .offsetCost +"</p>";
 
-  
+    '<p style="z-index:1000; border: 0.5px solid #dfe6e9;color: #636e72;margin-top=-40px;border-radius: 6px; box-shadow: 10px 10px 3px -9px rgba(0,0,0,0.75);width:100%; text-align: center; display:inline-block;"> <b>Recent:</b> '+products[products.length-1].productName+" </br></br> <b>Carbon cost:</b> " + products[products.length-1] .offsetCost +"</p>";
 
-  
+
+
+
 
 } );
 
