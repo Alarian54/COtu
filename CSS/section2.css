@@ -67,6 +67,7 @@
 .yangCaption {
   color: black;
   /* #38c28d;*/
+  line-height:2.5;
   font-weight: 600;
   font-size: 1.7em;
 }

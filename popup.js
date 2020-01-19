@@ -86,9 +86,8 @@ getAjax('https://b2100d7d.ngrok.io/getHistory', function(data){
     let marginAmount = marginMove(percent);
     document.getElementById('progessBarImg').style.marginLeft = marginAmount;
     document.getElementById('progress-bar-yangness').value = percent.toString();
-    // let picGreta = [3];
-    // document.getElementById('progessBarImg').src = picGreta;
-
+    // alert(marginAmount);
+} );
 
 
     var num1 = 0;
