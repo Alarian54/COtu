@@ -147,7 +147,7 @@ getAjax('https://b2100d7d.ngrok.io/getHistory', function(data){
   })
 
   document.getElementById('yangPercentage').innerHTML=
-  '<h2 style="margin-top:5px;margin-bottom:-20px;width:100%; text-align: center;color:red !important;display:inline-block;"> - £'+totalOffsetCost+'</h2>'
+  '<h2 style="margin-top:5px;margin-bottom:-20px;width:100%; text-align: center;color:red !important;display:inline-block;"> - £'+totalOffsetCost.toFixed(2)+'</h2>'
 
 
   document.getElementById('cartHistory').innerHTML=

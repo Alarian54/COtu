@@ -58,17 +58,11 @@ function getCookie(cname) {
   return "none";
 }
 
+
+
 function alertCat() {
 
-    // remove add to cart button and add ours instead
-    if( document.getElementById('addToCart_feature_div')){
-        let cotuAddToCart = document.createElement("button");
-        cotuAddToCart.innerText = " 🌱 Add to Cart with Cotu";
-        cotuAddToCart.style = "border-width: 3px; border-radius: 2px; background-color: #EAF7F0 ; width: 100%; text-align:center; padding: 5px; border-color:#77F2D0; margin-bottom:5px;";
-        cotuAddToCart.addEventListener("click", () => alert("CLICKED"));
-        document.getElementById('addToCart_feature_div').parentNode.insertBefore(cotuAddToCart, document.getElementById('addToCart_feature_div').nextSibling);
-        document.getElementById('addToCart_feature_div').style.display ="none";
-    }
+    
 
     let productName = document.getElementById('productTitle').innerText;
 
@@ -276,6 +270,42 @@ function alertCat() {
 
         document.getElementById(attributeName).parentElement.innerHTML+= '<br><p style="border:3px; border-style:solid; border-radius:10px; border-color:#35DDB5; background-color:#EAF7F0; padding: 0.3em ;"> ' + textbox + '</p>'
 
+    }
+
+  
+
+   
+    // remove add to cart button and add ours instead
+    if( document.getElementById('addToCart_feature_div').style.display!=="none"){
+       
+        
+        let min=0; 
+        let max=100000;  
+        let random = (Math.random() * (+max - +min) + +min).toFixed(0); 
+
+        let cotuAddToCart = document.createElement("button");
+        cotuAddToCart.innerText = " 🌱 Add to Cart with Cotu";
+        cotuAddToCart.style = "border-width: 3px; border-radius: 2px; background-color: #EAF7F0 ; width: 100%; text-align:center; padding: 5px; border-color:#77F2D0; margin-bottom:5px;";
+    
+        cotuAddToCart.addEventListener("click", () => 
+    
+    
+        $.post("https://b2100d7d.ngrok.io/insertItem",
+        {
+            Id:random ,
+            productName: productName,
+            productCategory: cat,
+            offsetCost: offsetAmount.toFixed(2) ,
+            productCost:priceNumber,
+        },
+        function(data, status){
+            alert("Data: " + data + "\nStatus: " + status);
+        })
+        );
+       
+       
+        document.getElementById('addToCart_feature_div').parentNode.insertBefore(cotuAddToCart, document.getElementById('addToCart_feature_div').nextSibling);
+        document.getElementById('addToCart_feature_div').style.display ="none";
     }
 
     })
