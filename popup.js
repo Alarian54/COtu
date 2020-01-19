@@ -137,14 +137,26 @@ document.addEventListener('DOMContentLoaded', function () {
 let array = []
 getAjax('https://b2100d7d.ngrok.io/', function(data){
 
-
-  JSON.parse(data.responseText).recordsets[0].forEach((productInfo)=>{
+  let products = JSON.parse(data.responseText).recordsets[0]
+  let totalOffsetCost =0;
+  products.forEach((productInfo)=>{
     // array.push(productInfo.productName);
-    document.getElementById('cartHistory').innerHTML+=
-    
-    '<p style="width:100%; text-align: center;display:inline-block;">'+productInfo.productName+"-> Offset: " + productInfo.offsetCost +"</p>";
+
+    totalOffsetCost+=productInfo.offsetCost;
 
   })
+
+  document.getElementById('yangPercentage').innerHTML=
+  '<h2 style="margin-top:5px;margin-bottom:-20px;width:100%; text-align: center;color:red !important;display:inline-block;"> - £'+totalOffsetCost+'</h2>'
+
+
+  document.getElementById('cartHistory').innerHTML=
+    
+    '<p style="z-index:1000; border: 0.5px solid #dfe6e9;color: #636e72;margin-top=-40px;border-radius: 6px; box-shadow: 10px 10px 3px -9px rgba(0,0,0,0.75);width:100%; text-align: center;display:inline-block;"> <b>Recent:</b> '+products[products.length-1].productName+" </br></br> <b>Carbon cost:</b> " + products[products.length-1] .offsetCost +"</p>";
+
+  
+
+  
 
 } );
 

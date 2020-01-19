@@ -2,23 +2,23 @@
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  height: 210px;
-  border-radius: 0px 0px 70% 0px;
+  height: 270px;
+  border-radius: 0px 0px 20% 0px;
   margin-top: 0px;
   position: relative;
   z-index: 3;
 }
 
-.section22 {
+/* .section22 {
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  height: 258px;
+  height: 358px;
   border-radius: 0px 0px 70% 0px;
   margin-top: 0px;
   position: relative;
   z-index: 3;
-}
+} */
 
 .progressBarImg {
   width: 50px;
