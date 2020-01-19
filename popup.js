@@ -87,7 +87,7 @@ getAjax('https://b2100d7d.ngrok.io/getHistory', function(data){
     document.getElementById('progessBarImg').style.marginLeft = marginAmount;
     document.getElementById('progress-bar-yangness').value = percent.toString();
     // alert(marginAmount);
-} );
+
 
 
     var num1 = 0;
@@ -108,12 +108,7 @@ getAjax('https://b2100d7d.ngrok.io/getHistory', function(data){
 
         document.getElementById('progessBarImg').src = gretaCountArray[num1][3];
         document.getElementById('yangCaption').innerHTML = level;
-
-    // alert(marginAmount);
-} );
-
-
-
-
+      } );
 
 }, false)
+
