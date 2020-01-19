@@ -37,7 +37,7 @@ enable developer mode on the top right.
 
 click load unpacked and upload the chrome-extension folder
 
-6.)🌳Now if you navigate into chrome the following should have worked and you can see the carbon footprint overlaying on the price page.
+6.)🌳Now if you navigate into chrome to an amazon product page the following should have worked and you can see the carbon footprint overlaying on the price page.
 
 Click on the chrome extension icon to reveal Great - your personal carbon coach
 
