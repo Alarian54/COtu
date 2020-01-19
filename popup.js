@@ -151,12 +151,14 @@ getAjax('https://b2100d7d.ngrok.io/getHistory', function(data){
 
   })
 
+  document.getElementById("yangCaption").innerHTML="Greta Says: How Dare You"
+
   document.getElementById('yangPercentage').innerHTML=
   '<h2 style="margin-top:5px;margin-bottom:-20px;width:100%; text-align: center;color:red !important;display:inline-block;"> - £'+totalOffsetCost.toFixed(2)+'</h2>'
 
 
   document.getElementById('cartHistory').innerHTML=
-    
+
     '<p style="color: #b2bec3; widht:100%; text-align:center; margin-bottom:-6px !important; padding:0px"> <b>Recent:</b></p>'+
      '<p style="z-index:1000; padding: 5px; color: #dfe6e9  !important;margin-top=0px!important;border-radius: 6px; ;width:100%; text-align: center;display:inline-block;"> '+products[products.length-1].productName+" </br> <b>Carbon cost:</b> " + products[products.length-1] .offsetCost +"</p>";
 
