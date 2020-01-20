@@ -2,7 +2,18 @@
 
 A chrome extension which overlays the carbon prices of most items on Amazon.
 
-## How to run 🏃:
+## Load just the extension:
+
+1.) 👨‍💻In chrome type into the url ```chrome://extensions```
+
+
+2.) click enable developer mode on the top right.
+
+3.) click load unpacked and upload the chrome-extension folder
+
+4.) Go pick your fav amazon product
+
+## How to run (with Greta) 🏃:
 
 
 0.) 🤖 Sign in or create an account for Microsoft Azure SQL and create a db with sample data.
