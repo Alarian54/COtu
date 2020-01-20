@@ -4,14 +4,15 @@ A chrome extension which overlays the carbon prices of most items on Amazon.
 
 ## Load just the extension:
 
-1.) 👨‍💻In chrome type into the url ```chrome://extensions```
+0.) download this repo: https://github.com/Alarian54/COtu
 
+1.) 👨‍💻In chrome type into the url ```chrome://extensions```
 
 2.) click enable developer mode on the top right.
 
 3.) click the "load unpacked" button and go into the CO2perate folder and select the "chrome-extension" folder
 
-4.) Go visit your fav amazon product
+4.) 💥 Go visit your fav amazon product
 
 ## How to run (with Greta) 🏃:
 
