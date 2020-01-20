@@ -9,9 +9,9 @@ A chrome extension which overlays the carbon prices of most items on Amazon.
 
 2.) click enable developer mode on the top right.
 
-3.) click load unpacked and upload the chrome-extension folder
+3.) click the "load unpacked" button and go into the CO2perate folder and select the "chrome-extension" folder
 
-4.) Go pick your fav amazon product
+4.) Go visit your fav amazon product
 
 ## How to run (with Greta) 🏃:
 
