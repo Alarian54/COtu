@@ -1,18 +1,62 @@
-### Cotu ☘️🛍️
+### COtu ☘️🛍️
 
 A chrome extension which overlays the carbon prices of most items on Amazon.
 
-## How to run 🏃:
+## Load just the extension:
+
+1.) 👨‍💻In chrome type into the url ```chrome://extensions```
+
+
+2.) click enable developer mode on the top right.
+
+3.) click load unpacked and upload the chrome-extension folder
+
+4.) Go pick your fav amazon product
+
+## How to run (with Greta) 🏃:
 
 
 0.) 🤖 Sign in or create an account for Microsoft Azure SQL and create a db with sample data.
 
-Download Azure Data Service onto your machine and sign into your database with those credentials.
+Download Azure Data Studio(https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)onto your machine and sign into your database with those credentials.
 
 Run the following scripts in the notebook to create a table for a user's purchase and carbon history:
 
 
-(to be filled)
+``` 
+CREATE TABLE [dbo].[cartHistory]
+(
+    [Id] INT NOT NULL PRIMARY KEY, -- Primary Key column
+    [productName] NVARCHAR(50) NOT NULL,
+    [productCategory] NVARCHAR(50)  NOT NULL,
+    [offsetCost] MONEY NOT NULL,
+    [productCost] MONEY NOT NULL,
+    -- Specify more columns here
+);
+GO
+
+INSERT INTO dbo.cartHistory
+VALUES(‘star wars blue ray’, ‘dvd’, 0.54, 14.99);
+
+CREATE PROCEDURE getHistory
+AS 
+BEGIN
+SET NOCOUNT ON;
+
+SELECT Id, productName, productCategory, offsetCost, productCost from dbo.cartHistory
+END 
+
+
+Create Procedure insert_item
+    (@Id int, @productName nvarchar(50),  @offsetCost money)
+As
+Begin
+    Insert Into dbo.cartHistory
+    Values (@Id, @productName, “gfg”, @offsetCost, 123)
+End
+```
+
+^^ run this in Azure Data Studio
 
 1.) 🎾 Sign in and Download ngrok (lets us easily upload a server https://ngrok.com/), once downloaded authenticate as instructed on the website
 
