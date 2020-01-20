@@ -1,4 +1,4 @@
-### Cotu ☘️🛍️
+### COtu ☘️🛍️
 
 A chrome extension which overlays the carbon prices of most items on Amazon.
 
