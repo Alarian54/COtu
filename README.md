@@ -12,7 +12,8 @@ Download Azure Data Studio(https://docs.microsoft.com/en-us/sql/azure-data-studi
 Run the following scripts in the notebook to create a table for a user's purchase and carbon history:
 
 
-``` CREATE TABLE [dbo].[cartHistory]
+``` 
+CREATE TABLE [dbo].[cartHistory]
 (
     [Id] INT NOT NULL PRIMARY KEY, -- Primary Key column
     [productName] NVARCHAR(50) NOT NULL,
